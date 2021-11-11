@@ -1,0 +1,16 @@
+table{
+  width:100%;
+  tr{
+    *{
+      padding:1rem;
+      text-align: left;
+
+    }
+    &:hover{
+      background-color: #fff0ee;
+    }
+  }
+}
+.wrapper{
+  max-height: 600px;
+}

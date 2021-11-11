@@ -1,0 +1,309 @@
+<div class="logo">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="100px"
+    viewBox="0 0 428.94 406.5"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          isolation: isolate;
+        }
+        .cls-2,
+        .cls-8 {
+          fill: #fff;
+        }
+        .cls-2,
+        .cls-5 {
+          stroke: #fed27f;
+          stroke-width: 18px;
+        }
+        .cls-2,
+        .cls-5,
+        .cls-8,
+        .cls-9 {
+          stroke-miterlimit: 10;
+        }
+        .cls-3 {
+          fill: #b6dff8;
+        }
+        .cls-4 {
+          fill: #f9b03d;
+        }
+        .cls-5 {
+          fill: none;
+        }
+        .cls-6 {
+          fill: #754d24;
+          mix-blend-mode: overlay;
+        }
+        .cls-7 {
+          fill: #82cfef;
+        }
+        .cls-8,
+        .cls-9 {
+          stroke: #f9b03d;
+          stroke-width: 9px;
+        }
+        .cls-9 {
+          fill: #ffde99;
+        }
+        .cls-10,
+        .cls-12 {
+          fill: #b4cd28;
+        }
+        .cls-11 {
+          fill: #36ab4e;
+        }
+        .cls-12 {
+          font-size: 72px;
+          font-family: CopperplateGothic-Bold, Copperplate Gothic Bold, Helvetica, sans-serif;
+          font-weight: 700;
+        }
+        .cls-13 {
+          fill: #f39322;
+        }
+      </style>
+    </defs>
+    <g class="cls-1">
+      <g id="Warstwa_9" data-name="Warstwa 9">
+        <circle class="cls-2" cx="203" cy="203.5" r="194" />
+      </g>
+      <g id="Warstwa_3" data-name="Warstwa 3">
+        <rect class="cls-3" x="67" y="157.5" width="263" height="166" />
+        <polygon
+          class="cls-4"
+          points="104 59.5 36 162.5 365 162.5 295 59.5 104 59.5"
+        />
+        <circle class="cls-5" cx="203.5" cy="203" r="194" />
+      </g>
+      <g id="Warstwa_6" data-name="Warstwa 6">
+        <polygon
+          class="cls-6"
+          points="207.69 59.5 281.69 162.5 364.69 162.5 294.69 59.5 207.69 59.5"
+        />
+        <polygon
+          class="cls-7"
+          points="265.77 162.65 329.08 163.16 330 323.5 266 323.5 265.77 162.65"
+        />
+      </g>
+      <g id="Warstwa_5" data-name="Warstwa 5">
+        <rect class="cls-8" x="101.5" y="194" width="46" height="58" />
+        <rect class="cls-8" x="252.5" y="194" width="46" height="58" />
+        <rect class="cls-9" x="171.5" y="226" width="56" height="93" />
+        <rect class="cls-10" x="237.5" y="279" width="181.5" height="95.5" />
+        <rect
+          class="cls-11"
+          x="247.44"
+          y="287.66"
+          width="181.5"
+          height="95.5"
+        />
+        <text class="cls-12" transform="translate(313.32 362.58)">$</text>
+        <circle class="cls-10" cx="279" cy="335.5" r="9" />
+        <circle class="cls-10" cx="398" cy="335.5" r="9" />
+      </g>
+      <g id="Warstwa_8" data-name="Warstwa 8">
+        <rect class="cls-13" x="237" y="34.5" width="31" height="25" />
+      </g>
+    </g>
+  </svg>
+  CASHBUDDY
+</div>
+
+<mat-card
+  *ngIf="user[0]"
+  fxLayout="row wrap"
+  fxLayout.lt-sm="column"
+  fxLayoutGap="2rem grid"
+  fxLayoutGap.lt-sm="1rem"
+  fxLayoutAlign="space-between stretch"
+  class="dashbord-main mat-elevation-z5"
+>
+  <div
+    class="sm"
+    fxFlex="30"
+    fxFlex.lt-lg="50"
+    fxFlex.lt-md="100"
+    fxFlexOrder="1"
+    fxFlexOrder.lt-lg="2"
+  >
+    <mat-card
+      class="clicable"
+      [class.warning]="user[0].saldo < 0"
+      [class.neutral]="user[0].saldo == 0"
+      [class.good]="user[0].saldo > 0"
+      (click)="openDialog('saldo')"
+    >
+      <app-saldo [user]="user"></app-saldo>
+      <div class="go-arrow">
+        <mat-icon style="transform: scale(1.4)">keyboard_arrow_down</mat-icon>
+      </div>
+    </mat-card>
+  </div>
+
+  <div
+    class="sm md"
+    fxFlex="30"
+    fxFlex.lt-lg="50"
+    fxFlex.lt-md="100"
+    fxFlexOrder="2"
+    fxFlexOrder.lt-lg="3"
+  >
+    <mat-card
+      class="clicable dark"
+      *ngIf="expenses"
+      (click)="openDialog('addExpense')"
+    >
+      <app-expenses [expenses]="expenses"></app-expenses>
+      <div class="go-arrow dark">
+        <mat-icon style="transform: scale(1.4)">keyboard_arrow_down</mat-icon>
+      </div>
+    </mat-card>
+  </div>
+
+  <div
+    class="sm md lg"
+    fxFlex="40"
+    fxFlex.lt-lg="100"
+    fxFlexOrder="3"
+    fxFlexOrder.lt-lg="1"
+  >
+    <mat-card class="primary clicable" (click)="openDialog('userInfo')">
+      <app-profile [user]="user"></app-profile>
+      <div class="go-arrow">
+        <mat-icon style="transform: scale(1.4)">keyboard_arrow_down</mat-icon>
+      </div>
+    </mat-card>
+  </div>
+
+  <div
+    class="sm md lg"
+    fxFlex="50"
+    fxFlex.lt-lg="100"
+    fxLayout="column"
+    fxLayoutGap="2rem grid"
+    fxLayoutGap.lt-sm="1rem"
+    fxFlexOrder="4"
+  >
+    <div
+      class="sm lg"
+      fxFlex="100"
+      fxLayout="row"
+      fxLayout.lt-md="column"
+      fxLayoutGap="2rem grid"
+    >
+      <div class="nd" fxFlex="80" fxFlex.lt-md="100">
+        <mat-card
+          *ngIf="expenses"
+          class="pink small clicable"
+          (click)="openDialog('addIncome')"
+        >
+          <app-income [expenses]="expenses"></app-income>
+          <div class="go-arrow">
+            <mat-icon style="transform: scale(1.4)"
+              >keyboard_arrow_down</mat-icon
+            >
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="md nd" fxFlex="20" fxFlex.lt-md="100">
+        <mat-card class="small centered icon" (click)="openDialog('notifications')">
+          <mat-icon
+            [matBadge]="notiCount"
+            matBadgePosition="after"
+            matBadgeOverlap="true"
+            matBadgeColor="warn"
+            >notifications_none</mat-icon
+          >
+        </mat-card>
+      </div>
+    </div>
+    <div class="sm md lg" fxFlex="100">
+      <mat-card
+        class="big clicable dark"
+        *ngIf="expenses"
+        routerLink="/user/operations"
+        routerLinkActive="active"
+      >
+        <app-diagram [expenses]="expenses"></app-diagram>
+        <div class="go-arrow dark">
+          <mat-icon style="transform: scale(1.4)">keyboard_arrow_down</mat-icon>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div
+    class="sm md"
+    fxFlex="50"
+    fxFlex.lt-lg="100"
+    fxLayout="row wrap"
+    fxLayoutGap="2rem grid"
+    fxLayoutGap.lt-sm="1rem grid"
+    fxFlexOrder="5"
+  >
+    <div class="sm" fxFlex="40" fxFlex.lt-md="100">
+      <mat-card
+        *ngIf="expenses"
+        class="clicable dark"
+        (click)="openDialog('expenseLimit')"
+      >
+        <app-target-progress
+          [expenses]="expenses"
+          [limit]="user[0].expenseLimit"
+        ></app-target-progress>
+        <div class="go-arrow dark">
+          <mat-icon style="transform: scale(1.4)">keyboard_arrow_down</mat-icon>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="sm md lg" fxFlex="60" fxFlex.lt-md="100">
+      <mat-card *ngIf="expenses">
+        <app-calendar [expenses]="expenses"></app-calendar>
+      </mat-card>
+    </div>
+
+    <div class="sm" fxFlex="80" fxFlex.lt-md="100">
+      <mat-card
+        class="home medium clicable"
+        [routerLink]="user[0].homeId != null ? '/home/dashboard' : null"
+        routerLinkActive="active"
+        (click)="user[0].homeId == null ? openDialog('createHome') : null"
+      >
+        <app-home [homeId]="user[0].homeId"></app-home>
+        <div class="go-arrow">
+          <mat-icon style="transform: scale(1.4)">keyboard_arrow_down</mat-icon>
+        </div>
+      </mat-card>
+    </div>
+    <div
+      class="sm md lg"
+      fxFlex="20"
+      fxFlex.lt-md="100"
+      fxLayout="row wrap"
+      fxLayoutGap="2rem grid"
+      fxLayoutGap.lt-sm="1rem grid"
+    >
+      <div class="md lg" fxFlex="100" fxFlex.lt-md="50">
+        <mat-card class="small centered icon" (click)="openDialog('editUser')">
+          <mat-card-content>
+            <mat-icon>settings</mat-icon>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="sm md lg" fxFlex="100" fxFlex.lt-md="50">
+        <div class="grid logout">
+          <mat-card class="small centered icon" (click)="logout()">
+            <mat-card-content>
+              <app-logout></app-logout>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>

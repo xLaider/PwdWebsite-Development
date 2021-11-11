@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+@font-face {
+  font-family: BMP;
+  src: url(assets/BMP.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: GUR;
+  src: url(assets/GUR.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: CaviarDreams;
+  src: url(assets/CaviarDreams.ttf) format("opentype");
+}
+
+html,
+body {
+  top:0 !important;
+  height: 100%;
+  margin:0;
+  overflow-x:hidden;
+  background-color: rgba(208, 237, 247, 0.3);
+}
+
+html{
+  overflow:hidden !important;
+}
+
+body {
+  font-family: 'CaviarDreams',Roboto, "Helvetica Neue", sans-serif ;
+}
+
+.logo{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  font-family: GUR, Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+    color: #EEB44D;
+    align-items: center;
+    *{
+      margin: 0 1rem;
+    }
+}
+
+
+@media only screen and (max-width:600px) {
+  .logo{
+    font-size:  4rem;
+  }
+}
+
+
+@media only screen and (max-width:400px) {
+
+  .logo{
+    font-size: 2.5rem;
+  }
+  svg{
+    height: 50px;
+  }
+}
+
+
+mat-form-field{
+  width: 100%;
+}
+
+.mat-badge-content{
+  transform:scale(0.6) !important;
+  top: -7px !important;
+  right: -7px !important;
+}
+
+caption{
+  display: none;
+}

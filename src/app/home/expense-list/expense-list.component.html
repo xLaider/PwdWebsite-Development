@@ -1,0 +1,183 @@
+<div class="logo">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="100px"
+    viewBox="0 0 428.94 406.5"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          isolation: isolate;
+        }
+        .cls-2,
+        .cls-8 {
+          fill: #fff;
+        }
+        .cls-2,
+        .cls-5 {
+          stroke: #fed27f;
+          stroke-width: 18px;
+        }
+        .cls-2,
+        .cls-5,
+        .cls-8,
+        .cls-9 {
+          stroke-miterlimit: 10;
+        }
+        .cls-3 {
+          fill: #b6dff8;
+        }
+        .cls-4 {
+          fill: #f9b03d;
+        }
+        .cls-5 {
+          fill: none;
+        }
+        .cls-6 {
+          fill: #754d24;
+          mix-blend-mode: overlay;
+        }
+        .cls-7 {
+          fill: #82cfef;
+        }
+        .cls-8,
+        .cls-9 {
+          stroke: #f9b03d;
+          stroke-width: 9px;
+        }
+        .cls-9 {
+          fill: #ffde99;
+        }
+        .cls-10,
+        .cls-12 {
+          fill: #b4cd28;
+        }
+        .cls-11 {
+          fill: #36ab4e;
+        }
+        .cls-12 {
+          font-size: 72px;
+          font-family: CopperplateGothic-Bold, Copperplate Gothic Bold, Helvetica, sans-serif;
+          font-weight: 700;
+        }
+        .cls-13 {
+          fill: #f39322;
+        }
+      </style>
+    </defs>
+    <g class="cls-1">
+      <g id="Warstwa_9" data-name="Warstwa 9">
+        <circle class="cls-2" cx="203" cy="203.5" r="194" />
+      </g>
+      <g id="Warstwa_3" data-name="Warstwa 3">
+        <rect class="cls-3" x="67" y="157.5" width="263" height="166" />
+        <polygon
+          class="cls-4"
+          points="104 59.5 36 162.5 365 162.5 295 59.5 104 59.5"
+        />
+        <circle class="cls-5" cx="203.5" cy="203" r="194" />
+      </g>
+      <g id="Warstwa_6" data-name="Warstwa 6">
+        <polygon
+          class="cls-6"
+          points="207.69 59.5 281.69 162.5 364.69 162.5 294.69 59.5 207.69 59.5"
+        />
+        <polygon
+          class="cls-7"
+          points="265.77 162.65 329.08 163.16 330 323.5 266 323.5 265.77 162.65"
+        />
+      </g>
+      <g id="Warstwa_5" data-name="Warstwa 5">
+        <rect class="cls-8" x="101.5" y="194" width="46" height="58" />
+        <rect class="cls-8" x="252.5" y="194" width="46" height="58" />
+        <rect class="cls-9" x="171.5" y="226" width="56" height="93" />
+        <rect class="cls-10" x="237.5" y="279" width="181.5" height="95.5" />
+        <rect
+          class="cls-11"
+          x="247.44"
+          y="287.66"
+          width="181.5"
+          height="95.5"
+        />
+        <text class="cls-12" transform="translate(313.32 362.58)">$</text>
+        <circle class="cls-10" cx="279" cy="335.5" r="9" />
+        <circle class="cls-10" cx="398" cy="335.5" r="9" />
+      </g>
+      <g id="Warstwa_8" data-name="Warstwa 8">
+        <rect class="cls-13" x="237" y="34.5" width="31" height="25" />
+      </g>
+    </g>
+  </svg>
+  CASHBUDDY
+</div>
+<div class="content">
+  <div class="filters">
+    <a  routerLink="/home/dashboard" routerLinkActive="active"><mat-icon>keyboard_arrow_left</mat-icon> Wróć</a>
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Typ wydatku</mat-label>
+      <mat-select
+        name="typeOfExpenseId"
+        (selectionChange)="applyFilterSelect($event.value)"
+      >
+        <mat-option>Brak filtru</mat-option>
+        <mat-option
+          *ngFor="let type of expenseTypes"
+          [value]="type.typeOfExpenseId"
+        >
+          {{ type.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <caption>Tabela wydatków domu</caption>
+      <!-- ID Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header scope="col">
+          Nazwa operacji
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.nameOfExpense }}</td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="expenseType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header scope="col">Typ operacji</th>
+        <td mat-cell *matCellDef="let row">
+          {{ getType(row.typeOfExpenseId) }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header scope="col">Data</th>
+        <td mat-cell *matCellDef="let row">{{ row.expenseDate | date: 'dd/MM/yyyy'}}</td>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header scope="col">Kwota</th>
+        <td mat-cell *matCellDef="let row">{{ row.amount | number:'.2-2'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="owner">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header scope="col">Właściciel</th>
+        <td mat-cell *matCellDef="let row">{{ getUserEmail(row.ownerId)}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Brak operacji</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

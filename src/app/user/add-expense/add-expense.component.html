@@ -1,0 +1,63 @@
+<h1>Dodaj wydatek</h1>
+<form
+  class="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate
+>
+  <mat-form-field class="example-form-field">
+    <mat-label>Nazwa wydatku</mat-label>
+    <input
+      matInput
+      type="text"
+      name="nameOfExpense"
+      [(ngModel)]="form.nameOfExpense"
+      required
+      #nameOfExpense="ngModel"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Typ wydatku</mat-label>
+    <mat-select
+      name="typeOfExpenseId"
+      [(ngModel)]="form.typeOfExpenseId"
+      required
+      #typeOfExpenseId="ngModel"
+    >
+      <mat-option
+        *ngFor="let type of expenseTypes"
+        [value]="type.typeOfExpenseId"
+      >
+        {{ type.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Data wydatku</mat-label>
+    <input
+      matInput
+      [matDatepicker]="dp3"
+      disabled
+      name="expenseDate"
+      [(ngModel)]="form.expenseDate"
+      required
+      #expenseDate="ngModel"
+    />
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="example-form-field">
+    <mat-label>Kwota wydatku</mat-label>
+    <input
+      matInput
+      type="number"
+      name="amount"
+      [(ngModel)]="form.amount"
+      required
+      #amount="ngModel"
+    />
+  </mat-form-field>
+
+  <button mat-button>Dodaj</button>
+  <button mat-button [mat-dialog-close]="true">Anuluj</button>
+</form>

@@ -1,0 +1,12 @@
+<div class="card reversed" *ngIf="home">
+    <img class="mat-elevation-z5 home-img" src="../../../assets/home.gif" style="padding:1rem;background-color: white;" alt="Dom">
+    <div class="user centY">
+    <h1>{{home.homeName}}</h1>
+    <h3>{{home.city}} {{home.street && home.street!=''?"ul."+home.street:''}} {{home.houseNumber}}</h3>
+    </div>
+    <a href="https://icons8.com/icon/NPW07SMh7Aco/male-user" rel=noopener target="_blank">.</a>
+    </div>
+    <div class="empty" *ngIf="!home">
+      <div>Kliknij, aby stworzyć dom lub poczekaj na zaproszenie</div>
+    </div>
+

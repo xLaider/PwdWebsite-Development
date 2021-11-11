@@ -1,0 +1,16 @@
+<div *ngIf="limit" class="card user centX centY">
+  <mat-progress-spinner
+    class="example-margin"
+    [color]="color"
+    mode="determinate"
+    [value]="progress"
+  >
+  </mat-progress-spinner>
+  <div style="position: relative; top: -60px; left: 0px">
+    {{ progress | number: '.0' }} %
+  </div>
+  Limit wydatków: {{ limit | number }} zł
+</div>
+<div class="empty" *ngIf="!limit">
+  <div>Ustaw limit wydatków</div>
+</div>

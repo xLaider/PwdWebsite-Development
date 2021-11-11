@@ -1,0 +1,22 @@
+<h1>Ustaw limit wydatków</h1>
+<form
+  class="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate
+>
+  <mat-form-field class="example-form-field">
+    <mat-label>Limit</mat-label>
+    <input
+      matInput
+      type="number"
+      name="expenseLimit"
+      [(ngModel)]="user.expenseLimit"
+      required
+      #expenseLimit="ngModel"
+    />
+  </mat-form-field>
+
+  <button mat-button>Ustaw</button>
+  <button mat-button [mat-dialog-close]="true">Anuluj</button>
+</form>

@@ -1,0 +1,105 @@
+$primary-color: #7265fa;
+.card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.centY {
+  justify-content: center;
+}
+
+.centX {
+  align-items: center;
+}
+
+.smaller {
+  padding: 1rem;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+}
+img {
+  margin: 0 2rem 0 1rem;
+  border-radius: 50%;
+
+}
+
+h1 {
+  color: white;
+  font-weight: 500;
+}
+
+.reversed {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.black {
+  color: black;
+}
+
+.calendar {
+  display: flex;
+  margin: auto;
+  * {
+    width: 42px;
+  }
+}
+
+h3,h2 {
+  color: white;
+  text-shadow: 1px;
+  margin:0;
+}
+.mat-display-1,
+.mat-display-2 {
+  margin: 0 !important;
+}
+
+.textCent {
+  text-align: center;
+}
+
+mat-card {
+  height: 42px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.green {
+  background-color: #acdeaa;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.red {
+  background-color: #f19292;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.empty {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fill-available;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  img{
+    display:none;
+  }
+  .card{
+    text-align: center;
+    justify-content: center;
+  }
+}

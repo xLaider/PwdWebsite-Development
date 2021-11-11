@@ -1,0 +1,145 @@
+$background-color: #ffffff;
+$primary-color: #7265fa;
+
+$warning: #b74747;
+$good: #77dd77;
+$neutral: #ffc02a;
+
+.dashbord-main {
+  max-width: 1300px;
+  margin: auto !important;
+  height: fit-content;
+  padding: 2rem;
+  max-height: fit-content !important;
+  //border: 1px solid black;
+}
+
+.primary {
+  background-color: $primary-color;
+}
+
+.good {
+  background-color: $good;
+}
+.warning {
+  background-color: $warning;
+}
+.neutral {
+  background-color: $neutral;
+}
+.pink {
+  background-color: #f5aab6;
+}
+.home {
+  background-color: #99c5f0;
+}
+
+mat-icon {
+  transform: scale(2);
+}
+
+mat-card {
+  border-radius: 20px;
+  cursor: pointer;
+  height: 168px;
+  &.small {
+    height: 68px;
+  }
+  &.big {
+    height: fit-content;
+    max-height: 268px;
+  }
+  &.medium{
+    height: 200px;
+  }
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 1278px) {
+  .lg {
+    padding-right: 0 !important;
+  }
+}
+
+.nd{
+  height: fit-content;
+}
+
+@media only screen and (max-width: 1278px) and (min-width: 958px) {
+  .md {
+    padding-right: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 958px) {
+  .sm {
+    padding-right: 0 !important;
+  }
+}
+
+//----------------
+
+.clicable {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  color:black !important;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 5px;
+    right: 5px;
+    color:black;
+    background:#4CA1A3;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.7s ease-out;
+
+  }
+
+  &:hover:before {
+    transform: scale(50);
+  }
+}
+
+.clicable.dark{
+  &:before {
+      background: #FFE5E2;
+    }
+  }
+
+.go-arrow{
+  position:absolute;
+  font-size: 1rem;
+  top: 9px;
+  right: 9px;
+  font-weight: bold;
+  &.dark{
+    color:black;
+  }
+  color:white;
+}
+
+.icon{
+  background-image: radial-gradient(circle at center , #FFE5E2 50%, transparent 50%);
+        background-repeat: no-repeat;
+        transition: background-size .6s, color .6s;
+        background-size: 0 0;
+        background-position: 50% 50%;
+        border-radius: 30px;
+  &:hover{
+    background-size: 200% 200%;
+  }
+}

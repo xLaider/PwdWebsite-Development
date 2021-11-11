@@ -1,0 +1,55 @@
+
+        <form
+        class="form"
+        (ngSubmit)="f.form.valid && register()"
+        #f="ngForm"
+        novalidate
+        [ngClass]="{ shake: shakeIt }"
+      >
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <mat-icon matPrefix>perm_identity</mat-icon>
+          <input
+            matInput
+            type="email"
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            #email="ngModel"
+          />
+          <mat-error
+            role="alert"
+            *ngIf="f.submitted && email.invalid"
+          >
+            E-mail jest wymagany
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-icon matPrefix>lock</mat-icon>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+          />
+          <mat-error
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && password.invalid"
+          >
+            <div *ngIf="password.errors.required">Hasło jest wymagane</div>
+            <div *ngIf="password.errors.minlength">
+              Hasło musi mieć co najmniej 6 znaków
+            </div>
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent">
+          Zarejestruj
+        </button>
+      </form>

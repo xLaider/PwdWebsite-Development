@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  & > mat-form-field {
+    margin: 0 1rem;
+  }
+  a {
+    display: flex;
+    margin-right: 2rem;
+    cursor: pointer;
+    align-items: center;
+    text-decoration: none;
+    color:black;
+  }
+}
+
+mat-icon{
+  cursor:pointer;
+}

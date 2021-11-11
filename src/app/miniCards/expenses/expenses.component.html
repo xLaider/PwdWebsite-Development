@@ -1,0 +1,24 @@
+<div *ngIf="expenses.length > 0" class="user centX">
+  <div style="
+  max-width:300px;">
+    <canvas
+      baseChart
+      [data]="doughnutChartData"
+      [labels]="doughnutChartLabels"
+      [chartType]="doughnutChartType"
+      [colors]="doughnutChartColors"
+      [legend]="false"
+    >
+    </canvas>
+  </div>
+
+  <div>
+    <h3 class="black">
+      Wydatki(ostatni miesiąc): {{ expenseSum | number }} zł
+    </h3>
+  </div>
+</div>
+
+<div class="empty" *ngIf="!expenses || expenses.length === 0">
+  <div>Brak wydatków w ostatnim miesiącu</div>
+</div>

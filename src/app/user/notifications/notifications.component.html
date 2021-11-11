@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <h1>Powiadomienia</h1>
+  <table>
+    <caption>Tabela powiadomień</caption>
+    <tr>
+      <th scope="col">Powiadomienie</th>
+      <th scope="col">Akcja</th>
+    </tr>
+    <tr *ngFor="let notification of notifications" matColumnDef="name">
+      <td>{{ notification.text }}</td>
+      <td>
+        <button
+          mat-button
+          mat-stroked-button
+          color="accent"
+          (click)="joinHome(notification.notificationId, notification.homeId)"
+        >
+          Dołącz</button
+        ><button
+          mat-button
+          mat-raised-button
+          color="warn"
+          (click)="deleteNotification(notification.notificationId)"
+        >
+          Usuń
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

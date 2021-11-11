@@ -1,0 +1,82 @@
+#login-content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+mat-card {
+  padding: 3rem;
+  input {
+    font-size: large;
+  }
+  mat-icon {
+    position: relative;
+    top: 3px;
+  }
+}
+
+mat-card-title {
+  span {
+    float: left;
+  }
+  margin-bottom: 3rem;
+}
+
+mat-card-actions {
+  button {
+    width: 70%;
+  }
+  span {
+    cursor: pointer;
+    margin-top: 1rem;
+    display: block;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button{
+    margin-top: 1rem;
+    width: 80%;
+}
+
+form {
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.shake {
+  animation-name: shake;
+  animation-duration: 0.6s;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+

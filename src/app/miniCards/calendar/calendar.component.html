@@ -1,0 +1,20 @@
+<div *ngIf="calendar.length>0" class="card user centY">
+  <div class="calendar">
+    <mat-card
+      *ngFor="let expense of calendar"
+      class="textCent"
+      [class]="expense.typeOfExpenseId == 1 ? 'green' : 'red'"
+      matTooltipPosition="above"
+      [matTooltip]="(expense.typeOfExpenseId == 1 ? '+':'-')+ expense.amount | number "
+      [matTooltipClass]="expense.typeOfExpenseId == 1 ? 'example-tooltip-green' : 'example-tooltip-red'"
+    >
+      <h1 class="noMargin">{{ expense.day | date: "dd" }}</h1>
+      <div>{{ expense.month }}</div>
+    </mat-card>
+  </div>
+  <div class="textCent">Nadchodzące wydatki/przychody</div>
+</div>
+
+<div class="empty" *ngIf="calendar.length===0">
+  <div>Brak nadchodzących wydatków/przychodów</div>
+</div>

@@ -1,0 +1,6 @@
+<div *ngIf="income>0" class="card centX">
+<h2>Przychód(ostatni miesiąc): {{income| number:'.2-2'}} zł</h2>
+</div>
+<div class="empty" *ngIf="income==0">
+  <div>Brak przychodów w ostatnim miesiącu</div>
+</div>

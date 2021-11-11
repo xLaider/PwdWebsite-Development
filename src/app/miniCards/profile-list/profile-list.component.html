@@ -1,0 +1,7 @@
+<h2>Użytkownicy domu</h2>
+<div class="user-wrapper">
+  <mat-card *ngFor="let profile of user" class="user" (click)="openUserDialog(profile.userId)">
+    <div>{{ profile.email }}</div>
+    <div>{{ profile.firstName }} {{ profile.lastName }}</div>
+  </mat-card>
+</div>

@@ -1,0 +1,24 @@
+<h1>Informacje o domu</h1>
+<table *ngIf="home">
+  <caption>Informacje o domu</caption>
+  <tr>
+    <th scope="row">Nazwa</th>
+    <td>{{home.homeName}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Ulica</th>
+    <td>{{home.street}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Numer budynku</th>
+    <td>{{home.houseNumber}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Kod pocztowy</th>
+    <td>{{home.postCode}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Miasto</th>
+    <td>{{home.city}}</td>
+  </tr>
+</table>

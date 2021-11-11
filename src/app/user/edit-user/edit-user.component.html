@@ -1,0 +1,45 @@
+<h1>Zmień informacje o użytkowniku</h1>
+<form
+  class="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate
+>
+  <mat-form-field class="example-form-field">
+    <mat-label>Imię</mat-label>
+    <input
+      matInput
+      type="text"
+      name="firstName"
+      [(ngModel)]="user.firstName"
+      #firstName="ngModel"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nazwisko</mat-label>
+    <input
+      matInput
+      type="text"
+      name="lastName"
+      [(ngModel)]="user.lastName"
+      #lastName="ngModel"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Data urodzenia</mat-label>
+    <input
+      matInput
+      [matDatepicker]="dp3"
+      disabled
+      name="dateOfBirth"
+      [(ngModel)]="user.dateOfBirth"
+      #dateOfBirth="ngModel"
+    />
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+
+  <button mat-button>Zapisz</button>
+  <button mat-button [mat-dialog-close]="true">Anuluj</button>
+</form>
